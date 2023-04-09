@@ -31,11 +31,11 @@
 
     
     <?php
-      $stud_id=$_GET['stud_id'];
+      $id=$_GET['id'];
       //$id=4;
-      $query = "SELECT * from guidance_profiling where stud_id=?";
+      $query = "SELECT * from guidance_reservation where id=?";
         if($stmt=$conn->prepare($query)){
-          $stmt->bind_param('i',$stud_id);
+          $stmt->bind_param('i',$id);
           $stmt->execute();
           $result=$stmt->get_result();
           $row=$result->fetch_object();
@@ -48,7 +48,7 @@
               <label for="staticEmail" class="col-sm-2 text-dark fw-bold col-form-label" >Student Name:</label>
             <div class="col-sm-3">
               <input type="text" name="id" class="visually-hidden form-control border-0" style="background:0%;" value="<?php echo "$row->id";?>"  readonly>
-              <input type="text" class="form-control border-0" style="background:0%;" value="<?php echo "$row->fname";echo "&nbsp;"; echo "$row->lname";?>"  readonly>
+              <input type="text" class="form-control border-0" style="background:0%;" value="<?php echo "$row->firstname";echo "&nbsp;"; echo "$row->lastname";?>"  readonly>
               <input type="text" name="name" class="visually-hidden form-control border-0" style="background:0%;" value="<?php echo "$row->fname";?>"  readonly>
               <input type="text" name="lname" class="visually-hidden form-control border-0" style="background:0%;" value="<?php echo "$row->lname";?>"  readonly>
             </div>
@@ -66,9 +66,9 @@
             </div>
             </div>
             <div class="row ">
-              <label for="staticEmail" class="col-sm-2 text-dark fw-bold col-form-label" >Status:</label>
+             
             <div class="col-sm-3">
-              <input type="text" name="status" class="form-control border-0" style="background:0%;" value="<?php echo "$row->status";?>"  readonly>
+              
             </div>
             </div>
           </div>
