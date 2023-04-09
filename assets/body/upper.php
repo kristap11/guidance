@@ -489,7 +489,7 @@ if($_SESSION['role'] == "Counselor"){
               <span class="tooltip">Reports</span>
             </li>
             <li>
-            <a href="student/newAppointment">
+            <a href="newAppointment">
               <i class='bx bxs-user-detail'></i>
               <span class="links_name">New Appointment</span>
             </a>

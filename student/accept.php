@@ -35,7 +35,7 @@
         "
         <script>
             alert('Reservation has been accepted');
-            document.location.href = '../home.php';
+            window.history.go(-1);
         </script>
         ";
 
@@ -45,8 +45,14 @@
 
         }
     }else{
-        echo "Error occured.";
-        header('location:../home.php');
+        echo
+        "
+        <script>
+            alert('Error occured.');
+            window.history.go(-1);
+        </script>
+        ";
+        
     }
 }
 

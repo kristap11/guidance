@@ -363,7 +363,7 @@ include('assets/body/upper.php');
         <tbody>
           <?php
           require 'includes/sms_db.php';
-          $query = "SELECT * FROM guidance_requests where status='approved' ORDER BY ID DESC";
+          $query = "SELECT * FROM guidance_reservation where status='approved' ORDER BY ID DESC";
           $result = mysqli_query($conn, $query);
           while ($row = mysqli_fetch_array($result)) {
           ?>
@@ -376,7 +376,8 @@ include('assets/body/upper.php');
               <td><?php echo $row["year_section"]; ?></td>
               <td><?php echo $row["referral"]; ?></td>
               <td><?php echo $row["concern"]; ?></td>
-              <td><?php echo $row["date_time"];  ?></td>
+              <td><?php echo $row["date"]; $row["time"];  ?></td>
+              <td><?php echo $row["date"]; $row["time"];  ?></td>
 
             </tr>
           <?php
