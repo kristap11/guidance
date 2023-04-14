@@ -59,7 +59,7 @@ ob_start();
 
          <?php
          require '../../includes/sms_db.php';
-      $rows = mysqli_query($conn, "SELECT * FROM guidance_individual")
+      $rows = mysqli_query($conn, "SELECT * FROM guidance_individual ")
       ?>
       <?php foreach ($rows as $row) : ?>
       <tr class="tr_data" >
