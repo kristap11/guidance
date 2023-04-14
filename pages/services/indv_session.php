@@ -2,8 +2,8 @@
 	session_start();
 
     $id = $_POST['id'];
+    $fname = $_POST['fname'];
     $name = $_POST['name'];
-    $lname = $_POST['lname'];
 	$stud_id = $_POST['stud_id'];
     $course_year_section = $_POST['course_year_section'];
     $status = $_POST['status'];
@@ -15,8 +15,8 @@
     $role = $_POST['role'];
 
     $_SESSION['id'] = $id;
+    $_SESSION['fname'] = $fname;
     $_SESSION['name'] = $name;
-    $_SESSION['lname'] = $lname;
     $_SESSION['stud_id'] = $stud_id;
 	$_SESSION['course_year_section'] = $course_year_section;
     $_SESSION['status'] = $status;
@@ -28,5 +28,5 @@
     $_SESSION['roles'] = $role;
 
 
-    header("Location: finalization.php");
+    header("Location: finalization");
 ?>

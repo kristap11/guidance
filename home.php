@@ -36,7 +36,7 @@ include('assets/body/upper.php');
           <h3 class="card-title text-dark">
             <?php
             $conn = mysqli_connect('localhost', 'u476821515_SMS', 'Bcpsms12@', 'u476821515_SMS');
-            $total_student = "SELECT * FROM registrar_studentlist";
+            $total_student = "SELECT * FROM guidance_profiling";
             $total_student_run =  mysqli_query($conn, $total_student);
 
             if ($totalstud = mysqli_num_rows($total_student_run)) {
@@ -179,8 +179,7 @@ include('assets/body/upper.php');
                 <label>Referral Reason: &nbsp<label class="text-danger"><?php echo $row['referral'] ?></label></label>
                 <label class="ms-3">Concern: &nbsp<label class="text-danger"><?php echo $row['concern'] ?></label></label>
               </div>
-              <small><i>Date Requested:</i></small>
-              <small><i><?php echo $row['date_time'] ?></i></small>
+             
               <div class="border-bottom border-secondary border-1">
                 <button id='<?php echo $row["id"] ?>' class='btn btn-sm btn-primary'><ion-icon class="me-1" name="checkmark-circle-sharp"></ion-icon>Accept</button>
                 <a href="student/rejected.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-danger my-2"><ion-icon class="me-1" name="close-circle-sharp"></ion-icon>Reject</a>
@@ -350,34 +349,39 @@ include('assets/body/upper.php');
       <table id="reservation" class="table table-striped border-dark table-bordered">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            
             <th scope="col">Student Name</th>
             <th scope="col">Course</th>
             <th scope="col">Year & Section</th>
             <th scope="col">Referral</th>
             <th scope="col">Concern</th>
             <th scope="col">Date & Time</th>
+            <th scope="col">Action</th>
 
           </tr>
         </thead>
         <tbody>
           <?php
           require 'includes/sms_db.php';
-          $query = "SELECT * FROM guidance_status ORDER BY ID DESC";
+          $query = "SELECT * FROM guidance_reservation where status='approved' ORDER BY ID DESC";
           $result = mysqli_query($conn, $query);
           while ($row = mysqli_fetch_array($result)) {
           ?>
 
             <tr>
-              <td><?php echo $row["id"]; ?></td>
-              <td><?php echo $row["firstname"];
-                  echo $row["lastname"]; ?></td>
+             
+              <td><?php echo $row["firstname"]; echo '&nbsp';
+               echo $row["lastname"]; ?></td>
               <td><?php echo $row["course"]; ?></td>
               <td><?php echo $row["year_section"]; ?></td>
               <td><?php echo $row["referral"]; ?></td>
               <td><?php echo $row["concern"]; ?></td>
-              <td><?php echo $row["date_time"];  ?></td>
-
+              <td><?php echo $row["date"]; $row["time"]; ?></td>
+              <td>
+          <div class="d-flex text-align-centered">
+            <a class='btn btn-warning' type='button' href='pages/services/indv_counseling.php?id=<?php echo $row["id"]; ?>'><ion-icon class='me-1' name='create-sharp'></ion-icon>Start Counseling</a>
+          </div>
+        </td>
             </tr>
           <?php
           }
@@ -492,7 +496,6 @@ include('assets/body/upper.php');
 </script>
 
 <?php
-
 include 'assets/body/lower.php';
 ?>
 
@@ -534,3 +537,4 @@ include 'assets/body/lower.php';
     });
   });
 </script>
+

@@ -355,7 +355,8 @@ include('assets/body/upper.php');
             <th scope="col">Year & Section</th>
             <th scope="col">Referral</th>
             <th scope="col">Concern</th>
-            <th scope="col">Date & Time</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
             <th scope="col">Action</th>
 
           </tr>
@@ -371,12 +372,13 @@ include('assets/body/upper.php');
             <tr>
              
               <td><?php echo $row["firstname"];
-                  echo $row["lastname"]; ?></td>
+               echo '&nbsp';   echo $row["lastname"]; ?></td>
               <td><?php echo $row["course"]; ?></td>
               <td><?php echo $row["year_section"]; ?></td>
               <td><?php echo $row["referral"]; ?></td>
               <td><?php echo $row["concern"]; ?></td>
-              <td><?php echo $row["date"]; $row["time"]; ?></td>
+              <td><?php echo $row["date"]; ?></td>
+              <td><?php echo $row["time"]; ?></td>
               <td>
           <div class="d-flex text-align-centered">
             <a class='btn btn-warning' type='button' href='pages/services/indv_counseling.php?id=<?php echo $row["id"]; ?>'><ion-icon class='me-1' name='create-sharp'></ion-icon>Start Counseling</a>

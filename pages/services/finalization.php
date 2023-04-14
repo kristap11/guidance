@@ -33,9 +33,9 @@
         <div class="card border-0 rounded-0 shadow">
           <div class="card-body">
           <input type="text" name="id" class="visually-hidden form-control fw-bold fs-2 text-center border-0" style="color:#07177a;" value="<?php echo $_SESSION['id']; ?>"  readonly>
-          <input type="text" class="form-control fw-bold fs-2 text-center border-0" style="color:#07177a;" value="<?php echo $_SESSION['name']; echo '&nbsp;'; echo $_SESSION['lname'];?>"  readonly>
+          <input type="text" class="form-control fw-bold fs-2 text-center border-0" style="color:#07177a;" value="<?php echo $_SESSION['fname']; echo '&nbsp;'; echo $_SESSION['name'];?>"  readonly>
+            <input type="text" name="fname" class="visually-hidden form-control fw-bold fs-2 text-center border-0" style="color:#07177a;" value="<?php echo $_SESSION['fname']; ?>"  readonly>
             <input type="text" name="name" class="visually-hidden form-control fw-bold fs-2 text-center border-0" style="color:#07177a;" value="<?php echo $_SESSION['name']; ?>"  readonly>
-            <input type="text" name="lname" class="visually-hidden form-control fw-bold fs-2 text-center border-0" style="color:#07177a;" value="<?php echo $_SESSION['lname']; ?>"  readonly>
             <input type="text" name="stud_id" class="form-control fw-bold text-center border-0"  value="<?php echo $_SESSION['stud_id']; ?>"  readonly>
             <input type="text" name="course_year_section" class="form-control fw-bold text-center border-0"  value="<?php echo $_SESSION['course_year_section']; ?>"  readonly>
             <input type="text" name="status" class="form-control fw-bold text-center border-0"  value="<?php echo $_SESSION['status']; ?>"  readonly>

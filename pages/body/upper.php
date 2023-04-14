@@ -395,7 +395,7 @@ if($_SESSION['role'] == "Counselor"){ ?>
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a class="dropdown-item" href="logout">Logout</a>
+                    <a class="dropdown-item" href="../../logout">Logout</a>
                   </li>
                 </ul>
               </div>
@@ -497,5 +497,7 @@ if($_SESSION['role'] == "Counselor"){ ?>
         </div>
 
        
-       <?php }?>
+        <?php }else{
+       header ("Location: ../../index?login=PLEASE LOGIN AGAIN");
+       } ?>
         

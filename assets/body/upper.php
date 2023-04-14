@@ -44,6 +44,7 @@ if($_SESSION['role'] == "Counselor"){
                 alt="bcp-logo"
               />
               <div class="logo_name text-dark ms-1 ms-sm-3">GUIDANCE AND COUNSELING</div>
+
               <!-- <div class="my-auto search-boxContainer d-none d-lg-block">
                 <input
                   type="text"
@@ -54,7 +55,12 @@ if($_SESSION['role'] == "Counselor"){
                   aria-describedby="button-addon1"
                 />
               </div> -->
+              
+              <!-- HTML code -->
+              
+              
             </div>
+            
           </li>
           <div class="d-flex align-items-center justify-content-end">
             <li>
