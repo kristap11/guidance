@@ -116,39 +116,47 @@ include 'assets/body/upper.php';
 
    <!--------------------------------------------------------------------------edit here------------------------------------------------------------------------------------------->
 
+</section>
 
-
-   <!-- Modal -->
-   <div class="modal fade" id="print_report" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Print Report</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-               
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+<!-- Modal -->
+<div class="modal fade" id="print_report" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Print Report</h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"> </button>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+         </div>
+         <div class="modal-body">
+            <label for="inputEmail"  class="text-dark fw"><b>Select Date:</b></label>
+            <input type="month" class="form-control" name="date" required>
+            <br>
+            <label for="inputEmail"  class="text-dark fw"><b>Select Approach:</b></label>
+            <select class="form-control" name="course" id="validationCustom04" required>
+               <option selected disabled value="">Select...</option>
+               <option><a class=" dropdown-item option" value="BS Information Technology">BS Information Technology</a></option>
+               <option><a class=" dropdown-item option" value="BS Hospitality Management">BS Hospitality Management</a></option>
+               <option><a class=" dropdown-item option" value="BS Office Administration">BS Office Administration</a></option>
+               <option><a class=" dropdown-item option" value="BS Business Administration">BS Business Administration</a></option>
+               <option><a class=" dropdown-item option" value="BS Criminology">BS Criminology</a></option>
+               <option><a class=" dropdown-item option" value="Bachelor of Elementary Education">Bachelor of Elementary Education</a></option>
+               <option><a class=" dropdown-item option" value="Bachelor of Secondary Education">Bachelor of Secondary Education</a></option>
+               <option><a class=" dropdown-item option" value="BS Computer Engineering">BS Computer Engineering</a></option>
+               <option><a class=" dropdown-item option" value="BS Tourism">BS Tourism</a></option>
+               <option><a class=" dropdown-item option" value="BS Entrepreneurship">BS Entrepreneurship</a></option>
+               <option><a class=" dropdown-item option" value="BS Accounting Information System">BS Accounting Information System</a></option>
+               <option><a class=" dropdown-item option" value="BS Psychology">BS Psychology</a></option>
+               <option><a class=" dropdown-item option" value="BS Information Science">BS Information Science</a></option>
+            </select>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
          </div>
       </div>
    </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-</section>
 
 <?php
 include 'assets/body/lower.php';

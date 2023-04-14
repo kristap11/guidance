@@ -98,39 +98,28 @@ include 'assets/body/upper.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="div">
-          <form action="pages/career/career-orient-update.php" id="editPostForm" method="POST">
-            <input type="hidden" name="id">
-          <label for="message-text" class="">Title:</label>
-          <input type="#"  class="form-control" placeholder="Enter Job Name" name="title">
-          <label for="message-text" class="pt-3">Description:</label>
-          <textarea type="#" id=""  class="form-control" style="height:300px;" placeholder="Enter Job Description" name="description"></textarea>
-          <div class="d-flex pt-3 align-items-centered">
-          <label for="message-text" class="text">Category:</label>
-            <div class="pb-2">
-              <select class="btn btn-primary btn-sm" name="category">
-                <option class="text-light" selected disabled><a class=" dropdown-item option">Choose...</a></option>
-                <option><a class=" dropdown-item option" value="Guidance Post">Guidance Post</a></option>
-                <option><a class=" dropdown-item option" value="Job Post">Job Post</a></option>
-              </select>
-            </div>
-          </div>
-          <div class="d-flex pt-3 align-items-centered">
-          <label for="message-text" class="text">Preference:</label>
-            <div class="pb-2">
-              <select class="btn btn-primary btn-sm" name="preference">
-                <option class="text-light" selected disabled><a class="dropdown-item option">Choose...</a></option>
-                <option><a class=" dropdown-item option" value="Pin Post">Pin Post</a></option>
-                <option><a class=" dropdown-item option" value="Unpin Post">Unpin Post</a></option>
-              </select>
-            </div>
-          </div>
-          <div class="d-flex pt-3 align-items-centered">
-          <label for="message-text" class="">Insert Image:</label>
-          <input type="file" name="image" id=""  class="form-control input-sm" style="width:500px;" placeholder="Choose File...">
-            </div>
-          </form>
+        <label for="name">Title : </label>
+        <input type="#" name="name" id="name"  class="form-control" style="width:300px;" required autofocus> 
+        <label for="name">Description : </label>
+        <textarea class="form-control" name="description" id="description" rows="6" required autofocus></textarea> 
+        <div class="col-md-3">
+          <label>Category:</label>
+            <select class="form-select-sm" name="category" id="validationCustom04" required>
+              <option selected disabled value="">Choose...</option>
+              <option><a class=" dropdown-item option" value="Research">Guidance Post</a></option>
+              <option><a class=" dropdown-item option" value="Evaluation">Job Post</a></option>
+            </select>
         </div>
+        <label for="message-text" class="text">Preference:</label>
+        <div class="pb-2">
+          <select class="btn btn-primary btn-sm" name="preference">
+            <option class="text-light" selected disabled><a class=" dropdown-item option">Choose...</a></option>
+            <option><a class=" dropdown-item option" value="Pin Post">Pin Post</a></option>
+            <option><a class=" dropdown-item option" value="Unpin Post">Unpin Post</a></option>
+          </select>
+        </div>
+        <label for="image">Image : </label>
+        <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

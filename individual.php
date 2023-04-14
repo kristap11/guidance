@@ -48,8 +48,7 @@ include 'assets/body/upper.php';
       <?php } ?>
 
       <div class="py-3">
-        <button href="index.php" type="button" class="btn btn-primary text-light" data-bs-toggle="modal"
-          data-bs-target=".inputStudent"><ion-icon class="me-1" name="create-sharp"></ion-icon>Start Counceling</button>
+        <button href="index.php" type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target=".inputStudent"><ion-icon class="me-1" name="create-sharp"></ion-icon>Start Counceling</button>
       </div>
 
       <table id="individual" class="table table-striped table-bordered">
@@ -83,7 +82,6 @@ include 'assets/body/upper.php';
           </td>
       </tr>";
             }
-
           }
           ?>
         </tbody>
@@ -96,31 +94,79 @@ include 'assets/body/upper.php';
 
 
 <form action="pages/services/get-method.php" method="post">
-  <div class="modal fade  inputStudent" onclick="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+  <div class="modal fade inputStudent" onclick="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5">Start Counseling:</h1>
+          <h class="modal-title fw-bold text-dark">Start Counseling:</h>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-secondary">
-          <label class="text-dark">Input student's number before proceeding</label><br>
-          <div class="row mt-2">
-            <div class="col-4">
-              <label for="message-text " class="text-dark">Student Number:</label>
-              <input type="text" name="stud_id" class="form-control" style="width:300px;" placeholder="ex. 190***22"
-                required>
+          <div class="card p-3 border-0 overflow-x-auto mb-3 rounded-0 shadow">
+            <label for="message-text" class="">Student Number:</label>
+            <input type="text" name="stud_id" class="form-control" style="width:300px;" placeholder="ex. 190***22" required>
+            <div class="modal-footer" style="border: 0;">
+              <div class="col-sm-10 text-left">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <input class="btn btn-primary ms-1" type="submit" name="save" value="Enter">
+              </div>
             </div>
+
+
+            <br>
+            <br>
+            <table id="reservation" class="table table-striped border-dark table-bordered">
+              <thead>
+                <tr>
+
+                  <th scope="col">Student Name</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">Year & Section</th>
+                  <th scope="col">Referral</th>
+                  <th scope="col">Concern</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Action</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                require 'includes/sms_db.php';
+                $query = "SELECT * FROM guidance_reservation where status='approved' ORDER BY ID DESC";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+
+                  <tr>
+
+                    <td><?php echo $row["firstname"];
+                        echo '&nbsp';
+                        echo $row["lastname"]; ?></td>
+                    <td><?php echo $row["course"]; ?></td>
+                    <td><?php echo $row["year_section"]; ?></td>
+                    <td><?php echo $row["referral"]; ?></td>
+                    <td><?php echo $row["concern"]; ?></td>
+                    <td><?php echo $row["date"]; ?></td>
+                    <td><?php echo $row["time"]; ?></td>
+                    <td>
+                      <div class="d-flex text-align-centered">
+                        <a class='btn btn-warning' type='button' href='pages/services/indv_counseling.php?id=<?php echo $row["id"]; ?>'><ion-icon class='me-1' name='create-sharp'></ion-icon>Start Counseling</a>
+                      </div>
+                    </td>
+                  </tr>
+                <?php
+                }
+
+                ?>
+
+              </tbody>
+            </table>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <input class="btn btn-primary ms-1" type="submit" name="save" value="enter">
+
         </div>
       </div>
     </div>
-  </div>
 </form>
 
 <?php
@@ -128,7 +174,7 @@ include 'assets/body/lower.php';
 ?>
 
 <script>
-  $(document).ready(function () {
+  $(document).ready(function() {
     $('#individual').DataTable();
-  });  
+  });
 </script>

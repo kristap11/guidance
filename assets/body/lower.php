@@ -38,12 +38,28 @@ function updateTime() {
   const dateTimeString = `${date} ${time}`;
   document.getElementById("time").innerHTML = dateTimeString;
 }
-
 // Update the time every second
 setInterval(updateTime, 1000);
-
-
 </script>
+
+<?php
+
+    if(isset($_SESSION['stats']) && $_SESSION['stats_code'] != ""){
+      ?>
+    <script>
+    swal({
+  title: "<?php echo $_SESSION['stats'] ?>",
+// text: "You clicked the button!",
+  icon: "<?php echo $_SESSION['stats_code'] ?>",
+  button: "OKAY!",
+});
+</script>
+<?php 
+unset($_SESSION['stats']);
+    }
+?>
+
+
 
   </body>
 </html>

@@ -61,7 +61,7 @@
         <td>
           <a class='btn btn-primary' type='button' href='pages/profiling/viewStudent.php?stud_id=$row[stud_id]'><ion-icon class='me-1' name='eye-sharp'></ion-icon>View</a>
 
-          <a class='btn btn-warning' type='button' href='pages/services/indv_counseling.php?stud_id=$row[stud_id]'><ion-icon class='me-1' name='create-sharp'></ion-icon>Start Counseling</a>
+          <a class='btn btn-warning' type='button' href='pages/services/indv_counseling.php?stud=$row[stud_id]'><ion-icon class='me-1' name='create-sharp'></ion-icon>Start Counseling</a>
         
           </td>
       </tr>";

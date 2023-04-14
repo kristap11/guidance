@@ -438,7 +438,7 @@ if($_SESSION['role'] == "Counselor"){
               </div>
               <ul class="sub-menu">
                 <li><a class="link_name p-0">Counseling Service</a></li>
-                <li><a href="../individual">Individual Counseling</a></li>
+                <li><a href="individual">Individual Counseling</a></li>
                 <li><a href="group">Group Counseling</a></li>
               </ul>
               <!-- <span class="tooltip">Analytics</span> -->

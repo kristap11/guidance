@@ -63,7 +63,7 @@ ob_start();
     </p>
 
     <p><b>Counseling Approach: </b><?php echo "$row->approach";?></p>
-    <p class="DTC"><b>Date/Time Counseled: </b></p>
+    <p class="DTC"><b>Date/Time Counseled: </b> <?php echo "$row->date";echo '&nbsp;'; echo "$row->time";?></p>
 
     <p><b>Background of the case: </b></p>
     <textarea><?php echo "$row->background";?></textarea>

@@ -1,5 +1,6 @@
 <?php
 $conn = mysqli_connect("localhost", "u476821515_SMS", "Bcpsms12@", "u476821515_SMS");
+
 if(isset($_POST["submit"])){
   $name = $_POST["name"];
   $description = $_POST["description"];
@@ -8,9 +9,9 @@ if(isset($_POST["submit"])){
 
   
   if($_FILES["image"]["error"] == 4){
-    echo
-    "<script> alert('Image Does Not Exist'); </script>"
-    ;
+    $_SESSION['stats'] = "Image Does Not Exist.";
+    $_SESSION['stats_code'] = "error";
+    header("Location: career_orientation.php");
   }
   else{
     $fileName = $_FILES["image"]["name"];
@@ -21,20 +22,14 @@ if(isset($_POST["submit"])){
     $imageExtension = explode('.', $fileName);
     $imageExtension = strtolower(end($imageExtension));
     if ( !in_array($imageExtension, $validImageExtension) ){
-      echo
-      "
-      <script>
-        alert('Invalid Image Extension');
-      </script>
-      ";
+      $_SESSION['stats'] = "Invalid Image Extension..";
+      $_SESSION['stats_code'] = "error";
+      header("Location: career_orientation.php");
     }
     else if($fileSize > 1000000){
-      echo
-      "
-      <script>
-        alert('Image Size Is Too Large');
-      </script>
-      ";
+      $_SESSION['stats'] = "Image Size Is Too Large.";
+      $_SESSION['stats_code'] = "error";
+      header("Location: career_orientation.php");
     }
     else{
       $newImageName = uniqid();
@@ -43,13 +38,9 @@ if(isset($_POST["submit"])){
       move_uploaded_file($tmpName, 'img/' . $newImageName);
       $query = "INSERT INTO guidance_post VALUES('', '$name', '$description', '$category' , '$preference' , Now() , '$newImageName')";
       mysqli_query($conn, $query);
-      echo
-      "
-      <script>
-        alert('Successfully Added');
-        document.location.href = 'career_orientation.php';
-      </script>
-      ";
+      $_SESSION['stats'] = "Successfully Added.";
+      $_SESSION['stats_code'] = "success";
+      header("Location: career_orientation.php");
     }
   }
 }
