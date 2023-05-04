@@ -156,6 +156,21 @@ include('assets/body/upper.php');
           <div class="border-bottom border-secondary">
             <h5 class="fw-bold text-dark"><ion-icon class="me-2" size="small" style="color:#FF8B13;" name="git-pull-request-sharp"></ion-icon>Appointment Request</h5>
           </div>
+
+          <table id="appointment" class="table table-striped border-dark table-bordered">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Course / Year & Section</th>
+                    <th scope="col">message</th>
+                    <th scope="col">Referral</th>
+                    <th scope="col">Concern</th>
+                    <th scope="col">Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
           <?php
           $conn = mysqli_connect('localhost', 'u476821515_SMS', 'Bcpsms12@', 'u476821515_SMS');
           $sql = "SELECT * FROM guidance_requests";
@@ -166,27 +181,26 @@ include('assets/body/upper.php');
             while ($row = mysqli_fetch_assoc($result)) {
           ?>
 
-              <label class="fs-5 fw-bold">
-                <?php echo $row['course'];
-                echo '&nbsp - &nbsp';
-                echo $row['year_section'];
-                echo '&nbsp';
-                echo $row['firstname'];
-                echo '&nbsp';
-                echo $row['lastname']; ?></label><br>
-              <label class="text-muted"><?php echo $row['message'] ?></label><br>
-              <div class="d-flex">
-                <label>Referral Reason: &nbsp<label class="text-danger"><?php echo $row['referral'] ?></label></label>
-                <label class="ms-3">Concern: &nbsp<label class="text-danger"><?php echo $row['concern'] ?></label></label>
-              </div>
-             
-              <div class="border-bottom border-secondary border-1">
+                
+                    <tr>
+                      <td><?php echo $row["firstname"]; echo '&nbsp'; echo $row["lastname"]; ?></td>
+                      <td><?php echo $row["course"]; echo $row["year_section"]; ?></td>
+                      <td><?php echo $row["message"]; ?></td>
+                      <td><?php echo $row["referral"]; ?></td>
+                      <td><?php echo $row["concern"]; ?></td>
+
+                      <td>
+                      <div class="border-secondary border-1">
                 <button id='<?php echo $row["id"] ?>' class='btn btn-sm btn-primary'><ion-icon class="me-1" name="checkmark-circle-sharp"></ion-icon>Accept</button>
                 <a href="student/rejected.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-danger my-2"><ion-icon class="me-1" name="close-circle-sharp"></ion-icon>Reject</a>
               </div>
+                </td>
+                    </tr>
+
+
+              
 
           <?php
-
             }
           } else {
             echo "No pending Request";
@@ -194,6 +208,9 @@ include('assets/body/upper.php');
 
           mysqli_close($conn);
           ?>
+  </tbody>
+              </table>
+
         </div>
       </div>
     </div>
@@ -538,3 +555,8 @@ include 'assets/body/lower.php';
   });
 </script>
 
+<script>
+   $(document).ready(function() {
+      $('#appointment').DataTable();
+   });
+</script>
